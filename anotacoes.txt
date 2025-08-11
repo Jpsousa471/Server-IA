@@ -1,0 +1,2 @@
+Como remover a pasta node_modules do commit:
+    -Para remover a pasta node_modules de um commit no Git, você deve usar o comando git rm --cached -r node_modules. Este comando remove a pasta do índice do Git, mas não a exclui fisicamente do seu sistema de arquivos. Em seguida, você precisa adicionar o arquivo .gitignore ao repositório, caso ainda não exista, e adicionar a linha node_modules para que essa pasta seja ignorada em futuros commits. 

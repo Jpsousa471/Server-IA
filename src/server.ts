@@ -1,4 +1,5 @@
 import {fastify} from 'fastify';
+import { sql } from './db/connection.ts';
 import {
     serializerCompiler,
     validatorCompiler,
@@ -12,6 +13,7 @@ const app = fastify().withTypeProvider<ZodTypeProvider>();
 app.register(fastifyCors, {
     origin: '*',
 })
+
 
 app.setSerializerCompiler(serializerCompiler)
 app.setValidatorCompiler(validatorCompiler)
