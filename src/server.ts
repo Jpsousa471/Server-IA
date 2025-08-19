@@ -1,26 +1,26 @@
-import {fastify} from 'fastify';
-import { sql } from './db/connection.ts';
+import { fastifyCors } from '@fastify/cors';
+import { fastify } from 'fastify';
 import {
-    serializerCompiler,
-    validatorCompiler,
-    type ZodTypeProvider
+  serializerCompiler,
+  validatorCompiler,
+  type ZodTypeProvider,
 } from 'fastify-type-provider-zod';
-import { fastifyCors } from '@fastify/cors'
+import { getRoomsRoute } from './db/http/routes/get.rooms.ts';
 import { env } from './env.ts';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
 app.register(fastifyCors, {
-    origin: '*',
-})
+  origin: '*',
+});
 
-
-app.setSerializerCompiler(serializerCompiler)
-app.setValidatorCompiler(validatorCompiler)
+app.setSerializerCompiler(serializerCompiler);
+app.setValidatorCompiler(validatorCompiler);
 
 app.get('/health', () => {
-    return 'OK'
-})
+  return 'OK AAAAAAAAAA';
+});
 
-    app.listen({port: env.PORT}).then(() => {
-    })
+app.register(getRoomsRoute);
+
+app.listen({ port: env.PORT });

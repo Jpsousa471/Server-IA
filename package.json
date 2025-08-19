@@ -13,7 +13,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@biomejs/biome": "2.1.2",
+    "@biomejs/biome": "^2.1.2",
     "@types/node": "^24.1.0",
     "drizzle-kit": "^0.31.4",
     "drizzle-seed": "^0.3.1",

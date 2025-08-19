@@ -1,0 +1,10 @@
+#variables
+@baseUrl = http://localhost:3333
+
+# Health check
+GET {{baseUrl}}/health
+
+### - Separa as rotas
+
+# Get rooms
+GET {{baseUrl}}/rooms
