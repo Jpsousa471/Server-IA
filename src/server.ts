@@ -5,7 +5,10 @@ import {
   validatorCompiler,
   type ZodTypeProvider,
 } from 'fastify-type-provider-zod';
-import { getRoomsRoute } from './db/http/routes/get.rooms.ts';
+import { createQuestionRoute } from './db/http/routes/create-question.ts';
+import { createRoomRoute } from './db/http/routes/create-rooms.ts';
+import { getRoomsQuestions } from './db/http/routes/get-room-questions.ts';
+import { getRoomsRoute } from './db/http/routes/get-rooms.ts';
 import { env } from './env.ts';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
@@ -22,5 +25,8 @@ app.get('/health', () => {
 });
 
 app.register(getRoomsRoute);
+app.register(createRoomRoute);
+app.register(getRoomsQuestions);
+app.register(createQuestionRoute);
 
 app.listen({ port: env.PORT });
