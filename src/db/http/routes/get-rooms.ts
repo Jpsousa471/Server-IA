@@ -1,5 +1,4 @@
 import { count, eq } from 'drizzle-orm';
-import { concat } from 'drizzle-orm/gel-core/expressions';
 import type { FastifyPluginCallbackZod } from 'fastify-type-provider-zod';
 import { db } from '../../connection.ts';
 import { schema } from '../../schema/index.ts';
